@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <!-- Deep cosmic background gradient -->
+    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+      <stop offset="0%"  stop-color="#3A1466"/>
+      <stop offset="45%" stop-color="#1A0A3A"/>
+      <stop offset="100%" stop-color="#05030F"/>
+    </radialGradient>
+
+    <!-- Neon brand gradient (magenta -> cyan) -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2BD6"/>
+      <stop offset="50%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+
+    <linearGradient id="neon2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00E5FF"/>
+      <stop offset="50%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#FF2BD6"/>
+    </linearGradient>
+
+    <!-- Inner glass highlight -->
+    <radialGradient id="glass" cx="35%" cy="22%" r="55%">
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Equalizer bar gradient -->
+    <linearGradient id="bar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2BD6"/>
+      <stop offset="55%"  stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+
+    <!-- Outer neon glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="b1"/>
+      <feMerge>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Squircle clip (rounded super-ellipse) for app-icon shape -->
+    <clipPath id="squircle">
+      <path d="M512 24
+               C 820 24 1000 204 1000 512
+               C 1000 820 820 1000 512 1000
+               C 204 1000 24 820 24 512
+               C 24 204 204 24 512 24 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background tile (full square so it works as a launcher AND adaptive foreground if needed) -->
+  <g clip-path="url(#squircle)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+
+    <!-- Subtle starfield specks -->
+    <g fill="#ffffff" opacity="0.65">
+      <circle cx="120" cy="160" r="2"/>
+      <circle cx="200" cy="90"  r="1.5"/>
+      <circle cx="880" cy="140" r="2.5"/>
+      <circle cx="940" cy="320" r="1.8"/>
+      <circle cx="80"  cy="700" r="1.6"/>
+      <circle cx="160" cy="900" r="2"/>
+      <circle cx="900" cy="860" r="2.2"/>
+      <circle cx="760" cy="950" r="1.6"/>
+      <circle cx="350" cy="60"  r="1.4"/>
+      <circle cx="640" cy="80"  r="1.4"/>
+    </g>
+
+    <!-- Outer concentric neon rings -->
+    <g fill="none" stroke="url(#neon)" filter="url(#glow)" opacity="0.55">
+      <circle cx="512" cy="512" r="430" stroke-width="3"/>
+      <circle cx="512" cy="512" r="380" stroke-width="2" opacity="0.7"/>
+    </g>
+
+    <!-- Sound-wave halo arcs -->
+    <g fill="none" stroke="url(#neon2)" stroke-linecap="round" filter="url(#softGlow)">
+      <path d="M 200 512 A 312 312 0 0 1 824 512" stroke-width="6" opacity="0.8"/>
+      <path d="M 240 512 A 272 272 0 0 0 784 512" stroke-width="4" opacity="0.65"/>
+    </g>
+
+    <!-- Equalizer bars forming an abstract X / waveform -->
+    <g filter="url(#softGlow)">
+      <!-- 7 bars centered, varying heights for an EQ feel -->
+      <g>
+        <rect x="312" y="430" width="40" height="164" rx="20" fill="url(#bar)"/>
+        <rect x="372" y="380" width="40" height="264" rx="20" fill="url(#bar)"/>
+        <rect x="432" y="320" width="40" height="384" rx="20" fill="url(#bar)"/>
+        <rect x="492" y="280" width="40" height="464" rx="20" fill="url(#bar)"/>
+        <rect x="552" y="320" width="40" height="384" rx="20" fill="url(#bar)"/>
+        <rect x="612" y="380" width="40" height="264" rx="20" fill="url(#bar)"/>
+        <rect x="672" y="430" width="40" height="164" rx="20" fill="url(#bar)"/>
+      </g>
+
+      <!-- Bold central X letterform overlaid on bars -->
+      <g stroke="#FFFFFF" stroke-linecap="round" stroke-width="34" fill="none" opacity="0.96">
+        <line x1="362" y1="362" x2="662" y2="662"/>
+        <line x1="662" y1="362" x2="362" y2="662"/>
+      </g>
+      <!-- Inner neon X stroke -->
+      <g stroke="url(#neon)" stroke-linecap="round" stroke-width="14" fill="none">
+        <line x1="362" y1="362" x2="662" y2="662"/>
+        <line x1="662" y1="362" x2="362" y2="662"/>
+      </g>
+    </g>
+
+    <!-- Center pulse dot -->
+    <circle cx="512" cy="512" r="22" fill="#ffffff" filter="url(#softGlow)"/>
+    <circle cx="512" cy="512" r="10" fill="#FF2BD6"/>
+
+    <!-- Glassy top highlight -->
+    <rect width="1024" height="1024" fill="url(#glass)"/>
+
+    <!-- Outer rim -->
+    <path d="M512 24
+             C 820 24 1000 204 1000 512
+             C 1000 820 820 1000 512 1000
+             C 204 1000 24 820 24 512
+             C 24 204 204 24 512 24 Z"
+          fill="none" stroke="url(#neon)" stroke-width="6" opacity="0.9"/>
+  </g>
+</svg>
