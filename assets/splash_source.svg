@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%"  stop-color="#241050"/>
+      <stop offset="55%" stop-color="#0C0628"/>
+      <stop offset="100%" stop-color="#05030F"/>
+    </radialGradient>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2BD6"/>
+      <stop offset="50%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2BD6"/>
+      <stop offset="55%"  stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="32" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="2048" height="2048" fill="url(#bg)"/>
+
+  <!-- Halo rings -->
+  <g fill="none" stroke="url(#neon)" filter="url(#bigGlow)" opacity="0.5">
+    <circle cx="1024" cy="980" r="540" stroke-width="3"/>
+    <circle cx="1024" cy="980" r="470" stroke-width="2" opacity="0.7"/>
+    <circle cx="1024" cy="980" r="600" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- Centered emblem (reused from logo) -->
+  <g transform="translate(1024 980) scale(1.15) translate(-512 -512)" filter="url(#softGlow)">
+    <rect x="312" y="430" width="40" height="164" rx="20" fill="url(#bar)"/>
+    <rect x="372" y="380" width="40" height="264" rx="20" fill="url(#bar)"/>
+    <rect x="432" y="320" width="40" height="384" rx="20" fill="url(#bar)"/>
+    <rect x="492" y="280" width="40" height="464" rx="20" fill="url(#bar)"/>
+    <rect x="552" y="320" width="40" height="384" rx="20" fill="url(#bar)"/>
+    <rect x="612" y="380" width="40" height="264" rx="20" fill="url(#bar)"/>
+    <rect x="672" y="430" width="40" height="164" rx="20" fill="url(#bar)"/>
+
+    <g stroke="#FFFFFF" stroke-linecap="round" stroke-width="34" fill="none">
+      <line x1="362" y1="362" x2="662" y2="662"/>
+      <line x1="662" y1="362" x2="362" y2="662"/>
+    </g>
+    <g stroke="url(#neon)" stroke-linecap="round" stroke-width="14" fill="none">
+      <line x1="362" y1="362" x2="662" y2="662"/>
+      <line x1="662" y1="362" x2="362" y2="662"/>
+    </g>
+    <circle cx="512" cy="512" r="22" fill="#ffffff"/>
+    <circle cx="512" cy="512" r="10" fill="#FF2BD6"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g text-anchor="middle" font-family="Helvetica, Arial, sans-serif" filter="url(#softGlow)">
+    <text x="1024" y="1660" font-size="150" font-weight="900" fill="#FFFFFF" letter-spacing="6">AudioX</text>
+    <text x="1024" y="1760" font-size="64"  font-weight="700" fill="url(#neon)" letter-spacing="22">ULTRA · PRO · MAX</text>
+  </g>
+</svg>

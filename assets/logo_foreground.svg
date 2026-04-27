@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adaptive icon FOREGROUND only (transparent bg, safe-zone friendly: art lives within central 66%). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2BD6"/>
+      <stop offset="50%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2BD6"/>
+      <stop offset="55%"  stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Safe zone for adaptive icons is roughly the central 66% (340..684 with 1024 canvas).
+       We shrink the design by ~0.66 around center to stay inside it. -->
+  <g transform="translate(512 512) scale(0.66) translate(-512 -512)" filter="url(#softGlow)">
+    <!-- EQ bars -->
+    <rect x="312" y="430" width="40" height="164" rx="20" fill="url(#bar)"/>
+    <rect x="372" y="380" width="40" height="264" rx="20" fill="url(#bar)"/>
+    <rect x="432" y="320" width="40" height="384" rx="20" fill="url(#bar)"/>
+    <rect x="492" y="280" width="40" height="464" rx="20" fill="url(#bar)"/>
+    <rect x="552" y="320" width="40" height="384" rx="20" fill="url(#bar)"/>
+    <rect x="612" y="380" width="40" height="264" rx="20" fill="url(#bar)"/>
+    <rect x="672" y="430" width="40" height="164" rx="20" fill="url(#bar)"/>
+
+    <!-- Bold X -->
+    <g stroke="#FFFFFF" stroke-linecap="round" stroke-width="34" fill="none">
+      <line x1="362" y1="362" x2="662" y2="662"/>
+      <line x1="662" y1="362" x2="362" y2="662"/>
+    </g>
+    <g stroke="url(#neon)" stroke-linecap="round" stroke-width="14" fill="none">
+      <line x1="362" y1="362" x2="662" y2="662"/>
+      <line x1="662" y1="362" x2="362" y2="662"/>
+    </g>
+
+    <!-- Center dot -->
+    <circle cx="512" cy="512" r="22" fill="#ffffff"/>
+    <circle cx="512" cy="512" r="10" fill="#FF2BD6"/>
+  </g>
+</svg>
